@@ -275,9 +275,6 @@ objects:
             limits:
               cpu: "2"
               memory: 32Gi
-            requests:
-              cpu: "1"
-              memory: 1Gi
           volumeMounts:
           - mountPath: /var/lib/redis/data
             name: backend-redis-storage
@@ -448,9 +445,6 @@ objects:
             limits:
               cpu: 500m
               memory: 32Gi
-            requests:
-              cpu: 150m
-              memory: 256Mi
           terminationMessagePath: /dev/termination-log
           volumeMounts:
           - mountPath: /var/lib/redis/data
@@ -571,9 +565,6 @@ objects:
             limits:
               cpu: 150m
               memory: 80Mi
-            requests:
-              cpu: 50m
-              memory: 40Mi
         initContainers:
         - command:
           - /opt/app/entrypoint.sh
@@ -721,9 +712,6 @@ objects:
             limits:
               cpu: "1"
               memory: 700Mi
-            requests:
-              cpu: 500m
-              memory: 550Mi
     test: false
     triggers:
     - type: ConfigChange
@@ -870,9 +858,6 @@ objects:
             limits:
               cpu: "1"
               memory: 300Mi
-            requests:
-              cpu: 150m
-              memory: 50Mi
         initContainers:
         - command:
           - /opt/app/entrypoint.sh
@@ -1024,9 +1009,6 @@ objects:
           resources:
             limits:
               memory: 2Gi
-            requests:
-              cpu: 250m
-              memory: 512Mi
           volumeMounts:
           - mountPath: /var/lib/mysql/data
             name: mysql-storage
@@ -1164,9 +1146,6 @@ objects:
             limits:
               cpu: 250m
               memory: 96Mi
-            requests:
-              cpu: 50m
-              memory: 64Mi
     test: false
     triggers:
     - type: ConfigChange
@@ -1975,9 +1954,6 @@ objects:
             limits:
               cpu: "1"
               memory: 800Mi
-            requests:
-              cpu: 50m
-              memory: 600Mi
           volumeMounts:
           - mountPath: /opt/system/public/system
             name: system-storage
@@ -2223,9 +2199,6 @@ objects:
             limits:
               cpu: "1"
               memory: 800Mi
-            requests:
-              cpu: 50m
-              memory: 600Mi
           volumeMounts:
           - mountPath: /opt/system/public/system
             name: system-storage
@@ -2470,9 +2443,6 @@ objects:
             limits:
               cpu: "1"
               memory: 800Mi
-            requests:
-              cpu: 50m
-              memory: 600Mi
           volumeMounts:
           - mountPath: /opt/system/public/system
             name: system-storage
@@ -2756,9 +2726,6 @@ objects:
             limits:
               cpu: "1"
               memory: 2Gi
-            requests:
-              cpu: 100m
-              memory: 500Mi
           volumeMounts:
           - mountPath: /opt/system/public/system
             name: system-storage
@@ -2888,9 +2855,6 @@ objects:
             limits:
               cpu: "1"
               memory: 512Mi
-            requests:
-              cpu: 80m
-              memory: 250Mi
           volumeMounts:
           - mountPath: /opt/system/db/sphinx
             name: system-sphinx-database
@@ -3098,9 +3062,6 @@ objects:
             limits:
               cpu: "1"
               memory: 512Mi
-            requests:
-              cpu: 150m
-              memory: 250M
         initContainers:
         - command:
           - bash
@@ -3196,9 +3157,6 @@ objects:
             limits:
               cpu: 250m
               memory: 2G
-            requests:
-              cpu: 50m
-              memory: 250M
           volumeMounts:
           - mountPath: /var/lib/pgsql/data
             name: zync-database-data
@@ -3376,9 +3334,6 @@ objects:
             limits:
               cpu: 100m
               memory: 128Mi
-            requests:
-              cpu: 50m
-              memory: 64Mi
     test: false
     triggers:
     - type: ConfigChange
@@ -3498,9 +3453,6 @@ objects:
             limits:
               cpu: "1"
               memory: 128Mi
-            requests:
-              cpu: 500m
-              memory: 64Mi
         initContainers:
         - command:
           - sh
@@ -3700,9 +3652,6 @@ objects:
             limits:
               cpu: 500m
               memory: 64Mi
-            requests:
-              cpu: 120m
-              memory: 32Mi
     test: false
     triggers:
     - type: ConfigChange
@@ -3929,4 +3878,4 @@ parameters:
 - description: Use "Subdomain" to create a wildcard route for apicast wildcard router
   name: WILDCARD_POLICY
   required: true
-  value: None
+  value: Subdomain
