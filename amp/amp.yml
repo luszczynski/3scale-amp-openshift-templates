@@ -1,6 +1,6 @@
 apiVersion: template.openshift.io/v1
 kind: Template
-message: Login on https://${TENANT_NAME}-admin.${WILDCARD_DOMAIN} as ${ADMIN_USERNAME}/${ADMIN_PASSWORD}
+message: Login on https://${TENANT_NAME}-admin.${WILDCARD_DOMAIN} as ${ADMIN_USERNAME}/${ADMIN_PASSWORD}. And don't forget to enable wildcard router param in your openshift installation. You can do that by executing "oc set env dc/router ROUTER_ALLOW_WILDCARD_ROUTES=true -n default"
 metadata:
   annotations:
     description: 3scale API Management main system
@@ -3245,6 +3245,8 @@ objects:
             value: "0"
           - name: THREESCALE_DEPLOYMENT_ENV
             value: staging
+          - name: APICAST_LOG_LEVEL
+            value: true
           - name: REDIS_URL
             valueFrom:
               secretKeyRef:
@@ -3360,6 +3362,8 @@ objects:
             value: "300"
           - name: THREESCALE_DEPLOYMENT_ENV
             value: production
+          - name: APICAST_LOG_LEVEL
+            value: true
           - name: REDIS_URL
             valueFrom:
               secretKeyRef:
