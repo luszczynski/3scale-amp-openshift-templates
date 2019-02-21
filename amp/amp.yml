@@ -3246,7 +3246,7 @@ objects:
           - name: THREESCALE_DEPLOYMENT_ENV
             value: staging
           - name: APICAST_LOG_LEVEL
-            value: true
+            value: "debug"
           - name: REDIS_URL
             valueFrom:
               secretKeyRef:
